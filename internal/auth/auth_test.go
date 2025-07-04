@@ -20,7 +20,7 @@ func TestGetAPIKey(t *testing.T) {
 
 	for _, tc := range tests {
 		got, err := GetAPIKey(tc.input)
-		if err != nil && tc.err != nil && err.Error() == tc.err.Error() {
+		if err != nil && tc.err != nil && err.Error() != tc.err.Error() {
 			t.Fatalf("wrong error type, expected %v, got %v", tc.err, err)
 
 		}
